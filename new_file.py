@@ -1,5 +1,4 @@
+some_var = 11
+
 old_var = 15
-
-new_var = 11
-
-some_var = 12
+new_var = 10
