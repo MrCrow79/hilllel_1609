@@ -13,8 +13,6 @@ my_list = [1,2, 12.5, 'asd', [1, 'asd']]
 # tuple - кортеж, незмінний
 my_tuple = (1,2, 12.5, 'asd', [1, 'asd'])
 
-# set - сет, множина, унікальні значення
-my_set = {1, 2, 'asd'}
 
 # dict - словник
 my_dict = {'var_name': 'var_value', 'var_name2': 'var_value', 'third_value': [None, [{1: 2}]]}
