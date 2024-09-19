@@ -1,2 +1,1 @@
-# asd
-# asdasd
+some_var = 10
