@@ -1,12 +1,12 @@
 # task 01 == Виправте синтаксичні помилки
 print("Hello", end = " ")
-    print("world!")
+print("world!")
 
 # task 02 == Виправте синтаксичні помилки
 hello = "Hello"
 world = "world"
 if True:
-print(f"{hello} {world}!")
+    print(f"{hello} {world}!")
 
 # task 03  == Вcтавте пропущену змінну у ф-цію print
 for letter in "Hello world!":
@@ -14,19 +14,19 @@ for letter in "Hello world!":
 
 # task 04 == Зробіть так, щоб кількість бананів була
 # завжди в чотири рази більша, ніж яблук
-apples = 2
-banana = x
+# apples = 2
+# banana = x
 
 # task 05 == виправте назви змінних
-1_storona = 1
-?torona_2 = 2
-сторона_3 = 3
-$torona_4 = 4
+# 1_storona = 1
+# ?torona_2 = 2
+# сторона_3 = 3
+# $torona_4 = 4
 
 # task 06 == Порахуйте периметр фігури з task 05
 # та виведіть його для користувача
-perimetery = ? + ? + ? + ?
-print()
+# perimetery = ? + ? + ? + ?
+# print()
 
 
 """
