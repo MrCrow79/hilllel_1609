@@ -19,11 +19,16 @@
 
 # input()
 
+user_age = 23
 
-user_age = int(input('Tell me your age: ')) # it is string
-
-
-final_text = (f'Your biography: \nI\'m {input("Tell me your name: ")}, '
+final_text_asd = (f'Your biography: \nI\'m'
               f'my age is {user_age}. I was born in {2024 - user_age}')
 
-print(final_text)
+if __name__ == '__main__':
+
+    user_age = int(input('Tell me your age: ')) # it is string
+
+    final_text = (f'Your biography: \nI\'m {input("Tell me your name: ")}, '
+                  f'my age is {user_age}. I was born in {2024 - user_age}')
+
+    print(final_text)
