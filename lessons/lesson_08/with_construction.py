@@ -1,29 +1,16 @@
-with open('main') as f:  # contex manager
-    print(f.read())
+def summ_item(list):
 
+    try:
+        # Split the string by commas to get a list of strings, then convert to integers
+        for item in list:
+            numbers = [int(num) for num in item.split(',')]
+            # Calculate the sum of the list of integers
+            total = sum(numbers)
+            print(f'Sum of {item}: {total}')
 
-try:
-    f = open('main')
-    print(f.read())
+    except ValueError as val_er:
+        print("Can't sum it up!")
 
-finally:
-    f.close()
+lst = ['1,2,3,4', '1,2,3a,4,50', 'qwerty1,2,3']
 
-# __enter__
-# __exit__
-
-class DBConnect():
-
-    def __init__(self, db_str):
-        pass
-
-    def __enter__(self):
-        print('Enter method')
-
-    def __exit__(self, exc_type, exc_val, exc_tb):
-        print('Exit method')
-
-
-with DBConnect('asd') as f:
-    1/0
-
+summ_item(lst)
