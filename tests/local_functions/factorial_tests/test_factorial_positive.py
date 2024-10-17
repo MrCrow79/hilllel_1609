@@ -17,7 +17,7 @@ from test_functions import factorial
 
 
 
-class FactorialPositiveTest(unittest.TestCase):  # CamelCase
+class TestFactorialPositive(unittest.TestCase):  # CamelCase
 
 
     def test_factorial_5(self):  # snake_case

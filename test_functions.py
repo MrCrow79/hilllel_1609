@@ -45,6 +45,13 @@ def triangle_area(a, b, c):
 
 
 def convert_to_24_hour(time_str):
+
+    if type(time_str) == list:
+        raise TypeError
+
+    if type(time_str) == dict:
+        raise ValueError
+
     parts = time_str.split()
     if len(parts) != 2:
         raise ValueError('Time format is not a `hh:mm period`')
