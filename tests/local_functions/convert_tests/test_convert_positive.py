@@ -1,4 +1,7 @@
+from venv import logger
+
 import pytest
+import logging
 
 from test_functions import convert_to_24_hour
 from utils import is_dev
@@ -17,7 +20,6 @@ class TestConvertAMPositive:
         ('00:01 AM', '00:01'),
     ])
     def test_convert_am_hours_10_22(self, input_value, expected_result):
-        assert convert_to_24_hour(input_value) == expected_result
-
-
-
+        actual_r = convert_to_24_hour(input_value)
+        logging.info(f'expected {expected_result}, actual {actual_r}')
+        assert actual_r == expected_result

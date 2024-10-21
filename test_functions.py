@@ -1,3 +1,5 @@
+import logging
+
 def factorial(n):
 
     if n < 0:
@@ -24,6 +26,14 @@ def filter_even_numbers(lst):
 
 
 def find_primes(n: int) -> list:
+    logging.info(f'find_primes was called with {n}, {type(n)}')
+    logging.debug(f'find_primes was called with debug level  {n}, {type(n)}')
+    logging.critical(f'find_primes was called with critical level  {n}, {type(n)}')
+
+    if type(n) != int:
+        logging.error(f'find_primes input param is not int {type(n)}, {n}')
+
+
     primes = []
     for num in range(2, n + 1):
         is_prime = True

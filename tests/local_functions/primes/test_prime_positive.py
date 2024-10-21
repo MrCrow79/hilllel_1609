@@ -16,6 +16,7 @@ def test_prime_eleven():
 @pytest.mark.prime
 @pytest.mark.xfail(reason='Known issue jira_id = 123')
 def test_prime_twelve():
+
     assert find_primes(11) == [2, 3, 5, 7, 11, 12]
 
 
