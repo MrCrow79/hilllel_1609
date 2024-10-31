@@ -2,6 +2,8 @@ import pytest
 
 from test_functions import triangle_area
 
+import logging
+
 
 
 class TestTrianglePositive:
@@ -16,6 +18,7 @@ class TestTrianglePositive:
 @pytest.mark.regression
 @pytest.mark.my_positive
 def test_triangle_2_2_2_selected():
+    logging.info('call test_triangle_2_2_2_selected test')
     assert round(triangle_area(2,2,2), 3) == 1.732
 
 

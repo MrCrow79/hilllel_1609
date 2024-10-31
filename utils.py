@@ -8,3 +8,4 @@ def is_dev():
     # else:
     #     return False
     return os.getenv('CURRENT_ENV') == 'DEV'   # True if CURRENT_ENV == dev else False
+
