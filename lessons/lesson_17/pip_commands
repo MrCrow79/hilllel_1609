@@ -1,0 +1,14 @@
+pip freeze - повидитись бібліотеки в поточному venv
+pip freeze > requirements.txt  - записати всі бібліотеки з поточного venv в файл requirements.txt
+pip install -r requirements.txt - встановити всі бібліотеки з файла requirements.txt
+
+
+
+#
+git clone
+
+apt install python3.10-venv   # необхідно для створення віртуал енв
+pip -m venv .venv_name_folder
+source .venv_name_folder/bin/activate
+pip install -r requirements
+pytest ...
