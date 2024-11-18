@@ -1,1 +1,1 @@
-from lessons.lesson_15.properties import Car as les_15_propert_car_class
+# from lessons.lesson_15.properties import Car as les_15_propert_car_class
