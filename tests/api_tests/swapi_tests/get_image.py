@@ -13,6 +13,6 @@ with open('random_image.png', 'wb') as f:
 
 with open('random_image.png', 'rb') as f:
 
-    data = {'file_name': f.read()}
+    data = {'file_name': f}
 
 requests.post('url', files=data)
