@@ -1,0 +1,21 @@
+
+
+# sudo -u postgres psql
+# CREATE USER den WITH PASSWORD 'your_pw';
+# ALTER USER den WITH SUPERUSER;
+# CREATE DATABASE new_db OWNER den;
+
+
+Щодо Foreregein key
+
+Інформація є в лекції, ось цей код
+
+CREATE TABLE orders (
+    order_id SERIAL PRIMARY KEY,
+    user_id INT REFERENCES users(user_id),
+    order_date DATE
+);
+
+Тут ствоюється таблиця orders в якій є колонка user_id як є посиланням на колонку user_id  в таблиці users
+
+

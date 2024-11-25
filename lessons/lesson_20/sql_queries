@@ -1,0 +1,59 @@
+CREATE TABLE public.users (
+	id int4 GENERATED ALWAYS AS IDENTITY NOT NULL,
+	"name" varchar NOT NULL,
+	CONSTRAINT users_pk PRIMARY KEY (id)
+);
+
+
+INSERT INTO public.users
+("name")
+VALUES('Den');
+
+
+CREATE TABLE public.classes (
+	id int2 GENERATED ALWAYS AS IDENTITY NOT NULL,
+	"name" varchar NOT NULL,
+	descr varchar NULL,
+	CONSTRAINT classes_pk PRIMARY KEY (id),
+	CONSTRAINT classes_unique UNIQUE ("name")
+);
+
+insert into public.classes
+("name", "descr")
+values('eng', 'eng');
+
+SELECT name, id  -- * значить все
+FROM public.users ut
+where id < 3 or ut.id = 5
+
+
+update public.users
+set name = 'Alex'
+where id > 4
+
+
+SELECT name, id  -- * значить все
+FROM public.users ut
+where id < 3 or ut.id = 5
+
+delete
+from users
+where id = 4
+
+CREATE TABLE users_in_classes (
+    id SERIAL PRIMARY KEY,
+    user_id INTEGER,
+    class_id INTEGER
+);
+
+ALTER TABLE public.users_in_classes ADD CONSTRAINT users_classes_unique UNIQUE (user_id,class_id);
+
+
+select u.id, uic.user_id , u.name, uic.class_id
+from users u join users_in_classes uic on u.id = uic.user_id
+
+
+select * --u.id, uic.user_id , u.name, uic.class_id
+from users u
+join users_in_classes uic on u.id = uic.user_id
+join classes c on c.id = uic.class_id
