@@ -18,7 +18,7 @@ class RestBase:
                     f'\nResponse has status code {response.status_code}')
 
 
-        logger.info(f'response  {response.json()}')
+        # logger.info(f'response  {response.json()}')
 
         if status_code is not None:
             assert response.status_code == status_code, (f'Expected status code {status_code}, '
