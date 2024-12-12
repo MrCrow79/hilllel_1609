@@ -3,7 +3,7 @@ from test_functions import convert_to_24_hour
 import pytest
 
 from test_functions import convert_to_24_hour
-from utils import is_dev
+from utils.utils import is_dev
 
 
 @pytest.mark.convert

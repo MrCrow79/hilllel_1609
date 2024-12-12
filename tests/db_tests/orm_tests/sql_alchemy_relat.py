@@ -1,14 +1,11 @@
-import time
-
 from faker import Faker
-from requests import session
-from sqlalchemy import create_engine, func, select, update, delete, desc, asc
+from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
 from constants import BASE_PATH
-from core.db.orm_lessons.orb_base import Base
-from core.db.orm_lessons.tables.empl import Employee
-from core.db.orm_lessons.tables.depart import Department
+from core.db.orm_lessons.sqlalc.orb_base import Base
+from core.db.orm_lessons.sqlalc.tables.empl import Employee
+from core.db.orm_lessons.sqlalc.tables.depart import Department
 
 # З'єднання з базою даних PostgreSQL
 # Потрібно вказати правильні дані для вашої бази даних

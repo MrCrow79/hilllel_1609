@@ -1,7 +1,7 @@
 import pytest
 
 from test_functions import find_primes
-from utils import is_dev
+from utils.utils import is_dev
 
 
 @pytest.mark.prime
