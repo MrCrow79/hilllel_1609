@@ -1,0 +1,4 @@
+# DATABASE_URL = rf"sqlite:///{BASE_PATH}/my_sqlite3.db"
+
+# db = Database(provider='sqlite', filename='sqldb.db',  create_db=True)
+# db.generate_mapping(create_tables=True)
