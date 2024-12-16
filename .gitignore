@@ -5,6 +5,7 @@ __pycache__/
 .venv_310
 # C extensions
 *.so
+base_settings.ini
 
 tst.py
 # Distribution / packaging

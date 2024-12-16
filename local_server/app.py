@@ -54,9 +54,13 @@ def update_students(student_id):
     name = request_data.get('name')
     score = request_data.get('score')
 
+    student = db.get_student(student_id)
+
     if not name and not score:
         return jsonify({'message': 'You have to put name and/or score of the student'}), 400
 
+    name = name if name is not None else student['name']
+    score = score if score is not None else student['score']
     student = db.update_student(student_id=student_id, name=name, score=score)
     return jsonify(student), 200
 
