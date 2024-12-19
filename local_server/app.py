@@ -7,12 +7,30 @@ from db_base import SQLiteActions
 
 app = Flask(__name__)
 
+SECRET_KEY = 'OLOLO_secret_key'
 
 
 @app.route('/students/', methods=['GET'])
 def get_students():
     data = db.get_students()
     return jsonify(data), 200
+
+
+@app.route('/auth/', methods=['POST'])
+def get_token():
+    is_user_data_correct_user = True
+    user_data = request.get_json()
+
+    if user_data.get('name') != 'test':
+        is_user_data_correct_user = False
+
+    if user_data.get('password') != 'test':
+        is_user_data_correct_user = False
+
+    if not is_user_data_correct_user:
+        return jsonify("incorrect user name or password"), 403
+
+    return SECRET_KEY, 200
 
 @app.route('/students/<student_id>', methods=['GET'])
 def get_student(student_id: str):
@@ -29,6 +47,11 @@ def get_student(student_id: str):
 
 @app.route('/students/', methods=['POST'])
 def create_students():
+
+    auth_res = check_auth(request.headers)
+    if auth_res is not None:
+        return jsonify(auth_res[0]), auth_res[1]
+
     request_data = request.get_json()
     time.sleep(random.random() + 1.5) # sleep 1.5-2.5 sec
     error_msgs = []
@@ -44,11 +67,16 @@ def create_students():
         return jsonify(error_msgs), 400
 
     student = db.add_student(name=name, score=score)
-    return jsonify(student), 200
+    return jsonify(student), 201
 
 
 @app.route('/students/<student_id>', methods=['PUT'])
 def update_students(student_id):
+
+    auth_res = check_auth(request.headers)
+    if auth_res is not None:
+        return jsonify(auth_res[0]), auth_res[1]
+
     request_data = request.get_json()
 
     name = request_data.get('name')
@@ -68,8 +96,21 @@ def update_students(student_id):
 @app.route('/students/<student_id>', methods=['DELETE'])
 def delete_student(student_id):
 
+    auth_res = check_auth(request.headers)
+    if auth_res is not None:
+        return jsonify(auth_res[0]), auth_res[1]
+
     db.delete_student(student_id)
     return jsonify({'message': f'Student {student_id} deleted'}), 204
+
+
+def check_auth(headers):
+
+    if headers.get('token') is None:
+        return "You are not authorized", 401
+
+    if headers.get('token') != SECRET_KEY:
+        return "Token is incorrect", 403
 
 
 if __name__ == '__main__':
