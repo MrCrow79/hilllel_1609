@@ -17,6 +17,9 @@ class BasePage:
         url = url or self.url
         self._driver.get(url)
 
+    def check_is_correct_url(self):
+        assert self._driver.current_url == self.url, (f'Expected urls is {self.url}, '
+                                                      f'but actual url is {self._driver.current_url}')
 
     def _present_element(self, locator, message='', timeout=1):  # locator = tuple(type_of_selector, selector)
         return WebDriverWait(self._driver, timeout).until(

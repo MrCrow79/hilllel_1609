@@ -13,6 +13,7 @@ class LoginPage(BasePage):
         self.url = settings.saucedemo_url
         self.locators = LoginPageLocators()
 
+
     def _username_input(self):
         return self._input_field(self.locators.username_input, message='Cant find user name input at Login Page',
                                  timeout=3)
@@ -32,9 +33,9 @@ class LoginPage(BasePage):
         return self._present_elements(self.locators.red_cross)
 
     def check_there_are_3_red_crosses(self):
-        expected_crosses = 4
+        expected_crosses = 3
         self._wait_for_n_elements_are_presented(locator=self.locators.red_cross, el_quantity=expected_crosses,
-                                                message=f'Looking for red cresses. Expected {expected_crosses}')
+                                                message=f'Looking for red crosses. Expected {expected_crosses}')
 
 
     def set_user_name(self, user_name):
