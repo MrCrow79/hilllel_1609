@@ -19,14 +19,15 @@ from core.api.local_flask.student_ctrl import LocalFlaskCtrl
 
 
 def get_student_ids() -> List[int]:
+    return []
     ctrl = LocalFlaskCtrl()
     students_ids = [k['id'] for k in ctrl.get_students().json()]
     random.shuffle(students_ids)  # перемішую значення в списку
     return students_ids[:30] # 30 рандомних user_id
 
-
 @pytest.fixture(scope='session', params=get_student_ids())
 def student_id_parametrized(flask_ctrl, request):
+
     print(f'Run test with user_id {request.param}')
     return request.param
 

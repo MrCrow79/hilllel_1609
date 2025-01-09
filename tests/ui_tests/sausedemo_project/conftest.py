@@ -1,5 +1,5 @@
 import pytest
-from selenium.webdriver import Chrome
+from selenium.webdriver import Chrome, ChromeOptions
 
 from core.ui.sausedemo.pages.login_page import LoginPage
 from settings import settings
@@ -7,7 +7,13 @@ from settings import settings
 
 @pytest.fixture
 def driver():
-    driver = Chrome()
+    chrome_options = ChromeOptions()
+    chrome_options.add_argument("--headless")
+    chrome_options.add_argument("--no-sandbox")
+    chrome_options.add_argument("--disable-dev-shm-usage")
+
+    chrome_options.browser_version = "114"
+    driver = Chrome(options=chrome_options)
     yield driver
     driver.close()
 
@@ -22,7 +28,13 @@ def login_page(driver):
 
 @pytest.fixture(scope='session')
 def driver_session():
-    driver = Chrome()
+    chrome_options = ChromeOptions()
+    chrome_options.add_argument("--headless")
+    chrome_options.add_argument("--no-sandbox")
+    chrome_options.add_argument("--disable-dev-shm-usage")
+
+    chrome_options.browser_version = "114"
+    driver = Chrome(options=chrome_options)
     yield driver
     driver.close()
 

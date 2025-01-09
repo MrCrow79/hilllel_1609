@@ -14,7 +14,7 @@ def test_insert_values(get_cursor, classes_table_name):
 
     cursor, connection = get_cursor
 
-    name_value = f'test_{str(time.time()).split('.')[0]}'
+    name_value = f'test_{str(time.time()).split(".")[0]}'
 
     sql_query = f"""insert into {classes_table_name} ("name", "descr") values('{name_value}', 'eng');"""
     cursor.execute(sql_query)

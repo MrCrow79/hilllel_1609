@@ -1,0 +1,15 @@
+services:
+  db:
+    image: postgres
+    environment:
+      POSTGRES_USER: test_user
+      POSTGRES_PASSWORD: test_password
+      POSTGRES_DB: test_db
+      POSTGRES_PORT: 5433
+    ports:
+      - "5433:5433"
+
+  app:
+    build: .
+    depends_on:
+      - db

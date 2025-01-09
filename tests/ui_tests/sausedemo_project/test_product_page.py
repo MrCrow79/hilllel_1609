@@ -1,6 +1,9 @@
 from settings import settings
 
+import pytest
 
+
+@pytest.mark.UI
 def test_product_page_is_opened(driver, login_page):
 
     product_page = login_page.login_user(settings.saucedemo_user, settings.saucedemo_pwd)
