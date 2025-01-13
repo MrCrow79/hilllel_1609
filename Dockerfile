@@ -6,5 +6,6 @@ COPY . /app
 
 # Задаємо робочу директорію контейнера
 WORKDIR /app
+RUN pip install psycopg2
 
 CMD ["python", "db_python_script.py"]

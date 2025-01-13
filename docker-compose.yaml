@@ -1,15 +1,23 @@
+version: '3.9'
+
 services:
-  db:
-    image: postgres
+  pg_db:
+    image: postgres:15
     environment:
-      POSTGRES_USER: test_user
+      POSTGRES_USER: test_user1
       POSTGRES_PASSWORD: test_password
       POSTGRES_DB: test_db
-      POSTGRES_PORT: 5433
-    ports:
-      - "5433:5433"
+    # set port after starting DB
+    command: postgres -c listen_addresses='*' -c port=5433
 
   app:
-    build: .
+    build:
+      context: .
     depends_on:
-      - db
+      - pg_db
+    environment:
+      DB_HOST: pg_db
+      DB_PORT: 5433
+      DB_NAME: test_db
+      DB_USER: test_user1
+      DB_PASSWORD: test_password
