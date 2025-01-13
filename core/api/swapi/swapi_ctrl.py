@@ -3,7 +3,7 @@ from core.api.rest_base import RestBase
 
 class SwapiCtrl(RestBase):
 
-    def __init__(self, url='https://swapi.dev/api/'):
+    def __init__(self, url='https://www.swapi.tech/api/'):
         self.url = url
 
 

@@ -6,6 +6,7 @@ COPY . /app
 
 # Задаємо робочу директорію контейнера
 WORKDIR /app
+RUN pip install pytest
 RUN pip install psycopg2
 
-CMD ["python", "db_python_script.py"]
+CMD ["pytest", "tests/db_tests/test_db_python_script.py", "-k", "test_db_local_docker_run"]

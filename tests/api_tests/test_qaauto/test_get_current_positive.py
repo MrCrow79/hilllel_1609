@@ -1,3 +1,8 @@
+import allure
+
+@allure.epic('Api tests')
+@allure.feature('Qa auto')
+@allure.severity(allure.severity_level.NORMAL)
 def test_get_current_positive(qa_auto_ctrl):
     # session = requests.Session()
     # response_sign_in = session.post(url=url_signin, json=body)  # запусуємо cookeis в session

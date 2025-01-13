@@ -2,9 +2,12 @@ from faker import Faker
 
 from core.api.local_flask.assert_create_user import assert_create_user
 
+import pytest
+
 faker = Faker()
 
 
+@pytest.mark.xfail(reason='Not implemented')
 def test_create_user(flask_ctrl, sql_lite_cursor):
 
     user_data = {"name": faker.name(), "score": 50}

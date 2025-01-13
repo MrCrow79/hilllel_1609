@@ -20,4 +20,4 @@ services:
       DB_PORT: 5433
       DB_NAME: test_db
       DB_USER: test_user1
-      DB_PASSWORD: test_password
+      DB_PASSWORD: test_password # ${MY_SECRET_KEY} як альтернатива дадоати пароль в env vars

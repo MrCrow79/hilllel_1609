@@ -5,6 +5,8 @@ from selenium.webdriver.support.ui import WebDriverWait
 
 from core.ui.utils.custom_conditions import WaitForNElements
 
+import allure
+
 
 class BasePage:
 

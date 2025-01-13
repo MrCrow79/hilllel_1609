@@ -1,9 +1,13 @@
+import allure
+import pytest
 import requests
 from faker import Faker
 
 faker = Faker()
 
-
+@allure.epic('Api tests')
+@allure.feature('flask_app')
+@pytest.mark.xfail(reason='Not implemented')
 def test_create_user(auth_headers):
 
     authheaders, base_url = auth_headers

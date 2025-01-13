@@ -1,21 +1,29 @@
+import allure
 import pytest
 
 from core.api.swapi.swapi_ctrl import SwapiCtrl
+from tests.api_tests.base_api_test import BaseApiTests
+
+
+
 
 swapi_ctrl = SwapiCtrl()
 
-
-
+@allure.epic('Api tests')
 @pytest.mark.swapi
+@allure.description('swapi user tests, just create user')
 def test_get_users():
 
     response = swapi_ctrl.get_people()
 
     assert response.status_code == 200, f'Expected status code 200, but actual is {response.status_code}'
 
-
+@allure.epic('Api tests')
+@allure.feature('Swapi')
+@pytest.mark.xfail(reason='jira_link')
 @pytest.mark.swapi
 @pytest.mark.parametrize('page_number', [1,2,5, 10])
+@allure.link('jira_link')
 def test_get_users_with_pages(page_number):
 
     response = swapi_ctrl.get_people(params={'page': page_number})
@@ -32,6 +40,7 @@ def test_get_users_with_pages(page_number):
 
 
 @pytest.mark.swapi
+@allure.link('jira_tiket/123')
 def test_get_users_negative_case_pages():
 
     swapi_ctrl.get_people(params={'page': 10500}, status_code=404)

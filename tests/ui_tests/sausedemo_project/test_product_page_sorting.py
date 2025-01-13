@@ -1,11 +1,14 @@
 import pytest
+import allure
 
 from core.ui.sausedemo.product_page_asserts import assert_product_page_is_sorted
 from core.ui.sausedemo.utils.product_page_utils import ProductPageSorting, get_reverse_by_sorting
 
-
+@allure.feature('UI tests')
 class ProductPageTest:
 
+
+    @allure.title('Sorting products by default')
     def test_product_page_sorting_by_default(self, product_page_session):
 
         # actual_sorting_text =  product_page_session.get_current_sorting_element().text
@@ -23,7 +26,7 @@ class ProductPageTest:
             product_page=product_page_session,
         )
 
-
+    @allure.title('Sorting products by parameter')
     @pytest.mark.parametrize('order_by_value', [*list(ProductPageSorting)])  # *list(ProductPageSorting) == [ProductPageSorting.NAME_ASK, ProductPageSorting.NAME_DESC]
     def test_product_page_sorting_all_options(self, product_page_session, order_by_value):
 

@@ -1,9 +1,17 @@
+import allure
+
+
+
+
+
 from settings import settings
 from core.api.qa_auto.qaauto_ctrl import QAAutoCtrl
 
 qa_auto_ctrl = QAAutoCtrl()
 
-
+@allure.epic('Api tests')
+@allure.feature('Qa auto')
+@allure.severity(allure.severity_level.CRITICAL)
 def test_login_positive():
 
     print('send request to login')
