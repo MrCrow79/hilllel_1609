@@ -63,5 +63,6 @@ def test_create_user_auth_problem():
 @pytest.mark.gorest
 def test_create_for_checking_user_email_at_prod():
     assert  settings.USER_EMAIL == 'test+prod@test.com'
+    assert  settings.SECRET_PHRASE == 'secret'
 
 
