@@ -6,6 +6,7 @@ import time  # time.time() - повертає поточний час в сек�
 
 import allure
 
+from settings import settings
 from tests.api_tests.base_api_test import BaseApiTests
 
 
@@ -29,6 +30,10 @@ def validate_data(res):
 @pytest.mark.gorest
 def test_create_user():
     user_data = get_user_data()
+
+    print('!'*80)
+    print(settings.USER_EMAIL)
+    print('!'*80)
 
     # res = GorestCtrl().create_user(data=user_data)
     res = [{"name": "Tenali Ramakrishna",
