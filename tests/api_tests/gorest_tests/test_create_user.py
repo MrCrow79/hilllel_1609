@@ -26,6 +26,7 @@ def validate_data(res):
 @allure.feature('Gorest')
 @allure.story('Creating users')
 @allure.title("Create user positive")
+@pytest.mark.gorest
 def test_create_user():
     user_data = get_user_data()
 
