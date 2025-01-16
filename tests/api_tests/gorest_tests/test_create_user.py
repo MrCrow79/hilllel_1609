@@ -31,9 +31,7 @@ def validate_data(res):
 def test_create_user():
     user_data = get_user_data()
 
-    print('!'*80)
-    print(settings.USER_EMAIL)
-    print('!'*80)
+
 
     # res = GorestCtrl().create_user(data=user_data)
     res = [{"name": "Tenali Ramakrishna",
@@ -51,6 +49,7 @@ def test_create_user():
 
 @allure.title("Create user negative")
 @pytest.mark.negative
+@pytest.mark.gorest
 def test_create_user_auth_problem():
     user_data = {"name": "Tenali Ramakrishna",
                  "gender": "male",
@@ -58,3 +57,11 @@ def test_create_user_auth_problem():
                  "status": "active"}
 
     GorestCtrl().create_user(data=user_data, token='asd', status_code=401)
+
+
+@pytest.mark.negative
+@pytest.mark.gorest
+def test_create_for_checking_user_email_at_prod():
+    assert  settings.USER_EMAIL == 'test+prod@test.com'
+
+
