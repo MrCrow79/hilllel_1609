@@ -12,3 +12,4 @@ conn = psycopg2.connect(
     password=os.getenv("DB_PASSWORD"),
 )
 print("Connected to the database!")
+
